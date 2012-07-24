@@ -1,0 +1,62 @@
+body{
+	margin:0;
+	background-color: #aaa;
+	text-align:center;
+	background: url(../img/tileable_wood_texture.png);
+	font-family: Helvetica, Arial, Sans-serif;
+color: white;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+font-size: 80%;
+}
+
+button{
+	margin:10px;
+	padding:10px;
+	border-radius: 10px;
+	background: #fff
+
+
+}
+img.postcard{
+	width:9%;
+	height: 7%;
+	position:relative;
+	float:left;
+	margin:5px;
+		border-radius: 15px;
+		/* box-shadow: 0px 0px 15px 3px #444;
+*/
+/*	-webkit-transform:rotate(0deg);
+*/
+}
+#wrapper{
+text-align:center;
+	margin:30px;
+	width:100%;
+}
+#ui .inner{
+	padding:10px;
+}
+#ui{
+	clear:both;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	display:none;
+	margin-bottom:3%;
+	z-index: 9999;
+
+
+}
+#ui div.bg{
+	border-radius: 15px;
+	opacity:0.7;
+	z-index:-1;
+	background:#000;
+	width:98%;
+	height:100%;
+	position:absolute;
+	margin-left:1%;
+	margin-right:1%;
+}
