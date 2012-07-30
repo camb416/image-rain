@@ -71,7 +71,7 @@ for($i =0;$i<100;$i++){
 </div>
 <div id="ui">
 <div class="bg">&nbsp;</div>
-<div class="inner">
+<div class="inner">FOOD POSTCARDS
 <button id="reset-btn">reset</button>
 <button id="randomize-btn">randomize</button>
 <button id="gridify-btn">gridify</button>
@@ -80,6 +80,8 @@ for($i =0;$i<100;$i++){
 <button id="redtoggle-btn">red</button>
 <button id="bluetoggle-btn">blue</button>
 <button id="scatter-btn">scatter</button>
+<button id="absolute-btn">absolute</button>
+
 <input type="checkbox" class="shadow-checkbox" /> shadows</input>
 <input type="checkbox" class="bg-checkbox" checked="checked" /> background</input>
 </div>

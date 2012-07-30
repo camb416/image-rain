@@ -1,7 +1,5 @@
 POSTAPP = {};
 
-var myVar = "hello world";
-
 POSTAPP.init = function(){
 	// initializing the application
 	//alert($("#wrapper"));
@@ -21,15 +19,20 @@ POSTAPP.init = function(){
 	$("#bluetoggle-btn").click(POSTAPP.toggleBlue);
 	$("#redtoggle-btn").click(POSTAPP.toggleRed);
 	$("#scatter-btn").click(POSTAPP.scatter);
+	$("#absolute-btn").click(POSTAPP.setAbsolute);
 
 
 	$(".shadow-checkbox").click(POSTAPP.setShadows);
 	$(".bg-checkbox").click(POSTAPP.setBackground);
 
-
+	$("img.postcard").click(function(){
+		alert($(this).position().left+","+$(this).position().top);
+		// alert($(this));
+	});
 	//alert(myVar);
 	//$('#wrapper').click(function(){ alert("hello world"); });
 }
+
 POSTAPP.setShadows = function(){
 	var isShadows = $(".shadow-checkbox").attr("checked");
 
@@ -56,14 +59,15 @@ POSTAPP.setBackground = function(){
 }
 
 POSTAPP.scatter = function(){
-$('img.postcard').each(function(index){
+
+	$('img.postcard').each(function(index){
 
 		var screenW = $(window).width();
 		var screenH = $(window).height();
 		//alert(sineWave);
-var scale = Math.random();
+		var scale = Math.random();
 		//sineWave = Math.sin(index/1000)*100+150);
-//alert(Math.sin(index/10)*100+200);
+		//alert(Math.sin(index/10)*100+200);
 		//$(this).css('height',"222px");
 		$(this).css('position','absolute');
 		$(this).css('z-index', Math.floor(scale*1000));
@@ -108,19 +112,32 @@ POSTAPP.toggleYellow = function(){ $('img.yellow').toggle(500); }
 POSTAPP.toggleBlue = function(){ $('img.blue').toggle(500); }
 POSTAPP.toggleRed = function(){ $('img.red').toggle(500); }
 
+POSTAPP.setAbsolute = function(){
+	$('img.postcard').each(function(index){
+
+		var destLeft = $(this).position().left;
+		var destTop = $(this).position().top;
+		console.log($(this).offsetParent());
+		//$(this).css('position','absolute');
+		$(this).css('top',destTop);
+		$(this).css('left',destLeft);
+		$(this).css('position','absolute');
+	});
+}
 
 
 POSTAPP.gridify = function(){
+		POSTAPP.setAbsolute();
 	$('img.postcard').each(function(index){
 
 		var row = Math.floor(index/10);
 		var col = index%10;
-		//alert(sineWave);
-
-		//sineWave = Math.sin(index/1000)*100+150);
-//alert(Math.sin(index/10)*100+200);
-		//$(this).css('height',"222px");
-		$(this).css('position','absolute');
+		/*
+		var destLeft = $(this).position().left;
+		var destTop = $(this).position().top;
+*/
+		
+		//alert(destLeft,destTop);
 		$(this).animate({
 			left: col*190,
 			top: row*80
@@ -128,7 +145,7 @@ POSTAPP.gridify = function(){
 
 	// animation complete
 });
-	});
+});
 }
 
 POSTAPP.resetSizes = function(){
